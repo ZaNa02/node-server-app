@@ -4,6 +4,7 @@ const hbs = require('hbs'); //HBS -Handlebars...
 
 const fs = require('fs');
 
+const port = process.env.PORT || 3000; //Heroku will set the port for the app to run, OR we will use 3000 if unavailable
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');//reusable parts of code, no repetition :)
@@ -68,6 +69,6 @@ app.get('/bad',(req,res) => {
 });
 // /bad
 
-app.listen(3000, () => {
-  console.log('Server is up on port 3000');
+app.listen(port, () => {
+  console.log(`Server is up and running on ${port}`);
 });
